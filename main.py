@@ -7,6 +7,7 @@ Modèles à viser :
 
 from FlightRadar24 import FlightRadar24API
 import Avion
+import Atmopshere
 import entrees_utilisateur
 import numpy as np
 
@@ -17,7 +18,9 @@ flight = fr_api.get_flights()
 def main():
     liste_modeles = ['A320', 'A330', 'A380', 'B777', 'B737', 'B787', 'B747', 'B727']
     liste_avions = []
-    liste_objets = []
+    liste_atmo = []
+    liste_objets_avion = []
+    liste_objets_atmo = []
 
     for i in range(len(flight)):
         if flight[i].aircraft_code in liste_modeles:
@@ -29,20 +32,25 @@ def main():
         nouvel_avion = Avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
                                    , liste_avions[j].ground_speed, liste_avions[j].heading, liste_avions[j].longitude
                                    , liste_avions[j].latitude)
-        liste_objets.append(nouvel_avion)
+        liste_objets_avion.append(nouvel_avion)
+        liste_objets_atmo.append(Atmopshere.Atmosphere(nouvel_avion.get_altitude()))
 
-    user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin '))
+    print(liste_objets_avion[0].get_altitude(), liste_objets_atmo[0].get_temperature(), liste_objets_atmo[0].temperature())
+
+    user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter'))
     while user != 1 or user != 2:
         if user == 1:
-            entrees_utilisateur.guest(liste_objets)
+            entrees_utilisateur.guest(liste_objets_avion)
             break
         elif user == 2:
             print('prout')
         # entrees_utilisateur.tour_de_controle()
+        elif user == 3:
+            return 0
         else:
             user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin '))
 
-    return liste_objets
+    return liste_objets_avion
 
 
 if __name__ == '__main__':
