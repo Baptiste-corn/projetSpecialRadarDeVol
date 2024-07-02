@@ -38,3 +38,7 @@ class Avion:
 
     def set_ground_speed(self, nouvelle_vitesse):
         self.ground_speed = nouvelle_vitesse
+
+    def affichage_vol(self):
+        return ('<' + self.modele + '>' + ' - ' + self.numero_vol + ' - ' + 'Altitude : ' + str(self.altitude) + ' - '
+                + 'Vitesse : ' + str(self.ground_speed) + ' - ' + 'Heading : ' + str(self.heading))
