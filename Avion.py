@@ -1,54 +1,44 @@
-from atmosphere import Atmosphere
+import parametres
+
 class Avion:
-    def __init__(self, altitude, ground_speed,
-                 atmosphere, envergure, surface, masse, angle_fleche,
-                 cd0
-                 ):
-        self.altitude = altitude  # mètres
-        self.ground_speed = ground_speed # noeuds
-        self.atmosphere = atmosphere
-        self.envergure = envergure
-        self.surface = surface
-        self.masse = masse
-        self.angle_fleche = angle_fleche
-        self.cd0 = cd0
+    def __init__(self, modele, numero_vol, altitude, ground_speed, heading, lon, lat):
+        self.modele = modele
+        self.numero_vol = numero_vol
+        self.altitude = altitude
+        self.ground_speed = ground_speed
+        self.heading = heading
+        self.lon = lon
+        self.lat = lat
+        self.parametre = None
+
         # heading
         # Consommation
-        #Temps de vol
+        # Temps de vol
         # ...
+
+    def get_modele(self):
+        return self.modele
+
+    def get_numero_vol(self):
+        return self.numero_vol
 
     def get_altitude(self):
         return self.altitude
+
     def get_ground_speed(self):
         return self.ground_speed
-    def get_envergure(self):
-        return self.envergure
-    def get_surface(self):
-        return self.surface
-    def get_masse(self):
-        return self.masse
-    def get_atmosphere(self):
-        return self.atmosphere
-    def get_angle_fleche(self):
-        return self.angle_fleche
-    def get_cd0(self):
-        return self.cd0
-    def affichage(self):
-        print(f'Les caractéristiques de l\'avion sont : '
-              f'\nAltitude = {self.altitude} mètres'
-              f'\nVitesse au sol = {self.ground_speed} noeuds')
 
+    def get_heading(self):
+        return self.heading
 
-    def conditions_atmospheriques(self):
-        temperature = self.atmosphere.get_temperature()
-        densite = self.atmosphere.get_density()
-        vitesse_du_son = self.atmosphere.speed_of_sound()
+    def get_lon(self):
+        return self.lon
 
-        return temperature, vitesse_du_son, densite
+    def get_lat(self):
+        return self.lat
 
+    def set_altitude(self, nouvelle_altitude):
+        self.altitude = nouvelle_altitude
 
-
-monAtmopshere = Atmosphere(10000)
-#monAvion = Avion(10000, 500, monAtmopshere)
-#Avion.affichage(monAvion)
-#print(Avion.conditions_atmospheriques(monAvion))
+    def set_ground_speed(self, nouvelle_vitesse):
+        self.ground_speed = nouvelle_vitesse

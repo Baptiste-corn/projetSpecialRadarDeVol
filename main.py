@@ -7,7 +7,8 @@ Modèles à viser :
 
 from FlightRadar24 import FlightRadar24API
 import Avion
-import Atmopshere
+import atmosphere
+import parametres
 import entrees_utilisateur
 import numpy as np
 
@@ -35,7 +36,7 @@ def main():
                                    , liste_avions[j].latitude)
         liste_objets_avion.append(nouvel_avion)
 
-        liste_objets_atmo.append(Atmopshere.Atmosphere(nouvel_avion.get_altitude()))
+        liste_objets_atmo.append(atmosphere.Atmosphere(nouvel_avion.get_altitude()))
 
     print(liste_objets_avion[0].get_altitude(), liste_objets_atmo[0].get_temperature(), liste_objets_atmo[0].temperature())
 
