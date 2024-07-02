@@ -1,5 +1,4 @@
 # Basée sur la classe atmosphere vu en cours
-
 import math
 
 
@@ -35,7 +34,6 @@ class Atmosphere:
         return self.liste_temperature[-1][1]
 
     def density(self):
-        temperature = self.get_temperature()
 
         g = 9.81  # m/s^2
         M = 0.0289644  # kg/mol - Masse molaire de l'air
@@ -45,7 +43,7 @@ class Atmosphere:
         rayonTerre = 6371  # km
         gravity = 6.674 * 10**(-11) * (rayonTerre/(rayonTerre + self.altitude))**2
         pressure = p0 * (1 - 0.0000225577 * self.altitude) ** 5.25588  # Pa - https://fr.wikipedia.org/wiki/Formule_du_nivellement_barom%C3%A9trique
-        density = pressure * M / (R * temperature(self))  # kg/m^3 - Densité de l'air en fonction de la pression et de la température, equation gaz parfait
+        density = pressure * M / (R * self.get_temperature())  # kg/m^3 - Densité de l'air en fonction de la pression et de la température, equation gaz parfait
         return density, pressure, gravity
 
     def speed_of_sound(self):
