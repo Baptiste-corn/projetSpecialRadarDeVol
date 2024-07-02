@@ -1,5 +1,4 @@
 # Basée sur la classe atmosphere vu en cours
-
 import math
 
 

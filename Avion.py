@@ -9,7 +9,7 @@ class Avion:
         self.heading = heading
         self.lon = lon
         self.lat = lat
-        self.parametre = None
+        self.parametre = None  # On initialise plus tard
 
         # heading
         # Consommation

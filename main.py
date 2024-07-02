@@ -10,6 +10,7 @@ import Avion
 import atmosphere
 import parametres
 import entrees_utilisateur
+from controle_vol import get_dict_parametre
 import numpy as np
 
 fr_api = FlightRadar24API()
@@ -30,28 +31,31 @@ def main():
     print(liste_avions)
     print('TEST : ', liste_avions[0].registration)
 
-    for j in range(len(liste_avions)):
+    dico = get_dict_parametre()
+
+    for j in range(len(liste_avions)): # modele = liste... . aircraft_code
         nouvel_avion = Avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
                                    , liste_avions[j].ground_speed, liste_avions[j].heading, liste_avions[j].longitude
                                    , liste_avions[j].latitude)
+        nouvel_avion.parametre = dico[nouvel_avion.modele]  # modele de la classe Avion = aircraft code de l'API
         liste_objets_avion.append(nouvel_avion)
 
         liste_objets_atmo.append(atmosphere.Atmosphere(nouvel_avion.get_altitude()))
 
     print(liste_objets_avion[0].get_altitude(), liste_objets_atmo[0].get_temperature(), liste_objets_atmo[0].temperature())
 
-    user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter'))
+    user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter\n'))
     while user != 1 or user != 2:
         if user == 1:
             entrees_utilisateur.guest(liste_objets_avion)
             break
         elif user == 2:
-            numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?')
+            numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?\n')
             entrees_utilisateur.tour_de_controle(liste_objets_avion, liste_objets_atmo, numero_vol_to_modifier)
         elif user == 3:
             return 0
         else:
-            user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin '))
+            user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n'))
 
     return liste_objets_avion
 
