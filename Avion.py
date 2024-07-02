@@ -33,3 +33,5 @@ class Avion:
     def get_lat(self):
         return self.lat
 
+    def set_altitude(self, nouvelle_altitude):
+        self.altitude = nouvelle_altitude

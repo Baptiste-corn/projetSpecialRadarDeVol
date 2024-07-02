@@ -27,6 +27,7 @@ def main():
             liste_avions.append(flight[i])
 
     print(liste_avions)
+    print('TEST : ', liste_avions[0].registration)
 
     for j in range(len(liste_avions)):
         nouvel_avion = Avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
@@ -43,8 +44,8 @@ def main():
             entrees_utilisateur.guest(liste_objets_avion)
             break
         elif user == 2:
-            print('prout')
-        # entrees_utilisateur.tour_de_controle()
+            numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?')
+            entrees_utilisateur.tour_de_controle(liste_objets_avion, numero_vol_to_modifier)
         elif user == 3:
             return 0
         else:
