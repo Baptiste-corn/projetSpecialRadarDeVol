@@ -2,7 +2,7 @@
 Pour modifier les paramètres aérodynamiques de l'avion
 """
 from atmosphere import Atmosphere
-from avion import Avion
+from Avion import Avion
 import math
 
 
