@@ -34,6 +34,7 @@ def main():
                                    , liste_avions[j].ground_speed, liste_avions[j].heading, liste_avions[j].longitude
                                    , liste_avions[j].latitude)
         liste_objets_avion.append(nouvel_avion)
+
         liste_objets_atmo.append(Atmopshere.Atmosphere(nouvel_avion.get_altitude()))
 
     print(liste_objets_avion[0].get_altitude(), liste_objets_atmo[0].get_temperature(), liste_objets_atmo[0].temperature())
@@ -45,7 +46,7 @@ def main():
             break
         elif user == 2:
             numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?')
-            entrees_utilisateur.tour_de_controle(liste_objets_avion, numero_vol_to_modifier)
+            entrees_utilisateur.tour_de_controle(liste_objets_avion, liste_objets_atmo, numero_vol_to_modifier)
         elif user == 3:
             return 0
         else:

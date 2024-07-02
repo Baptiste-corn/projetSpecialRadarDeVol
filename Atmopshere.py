@@ -25,6 +25,9 @@ class Atmosphere:
             (15000, 216.66)
         ]
 
+    def get_altitude(self):
+        return self.altitude
+
     def get_temperature(self):
         for altitude, temperature in self.liste_temperature:
             if self.altitude <= altitude:
@@ -66,3 +69,6 @@ class Atmosphere:
         rayonTerre = 6371  # km
         gravite = 6, 674 * 10 ** (-11) * (rayonTerre / (rayonTerre + self.altitude)) ** 2
         return gravite
+
+    def set_altitude(self, nouvelle_altitude):
+        self.altitude = nouvelle_altitude

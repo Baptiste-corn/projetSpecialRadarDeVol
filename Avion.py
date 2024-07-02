@@ -35,3 +35,6 @@ class Avion:
 
     def set_altitude(self, nouvelle_altitude):
         self.altitude = nouvelle_altitude
+
+    def set_ground_speed(self, nouvelle_vitesse):
+        self.ground_speed = nouvelle_vitesse
