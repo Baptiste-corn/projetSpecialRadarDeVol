@@ -29,18 +29,18 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
                     avion_a_modifier = avions[i]
                     atmo_a_modifier = atmospheres[i]
                     ex_altitude = avion_a_modifier.get_altitude()
-                    ex_temp = avion_a_modifier.temperature()
+                    ex_temp = atmo_a_modifier.temperature()
                     print('coucou ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature())
 
             nouvelle_altitude = int(input('Quelle est la nouvelle altitude en mètres à atteindre pour ce vol ?'))
             avion_a_modifier.set_altitude(nouvelle_altitude)
             atmo_a_modifier.set_altitude(nouvelle_altitude)
-            print('COUCOUC ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature())
+            print('COUCOUC ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature(), avion_a_modifier)
 
             for c in range(len(avions)):
                 print(avions[c].get_numero_vol(), avions[c].get_altitude())
 
-            gestion_courbes.courbe_atmo_temperature(atmo_a_modifier, ex_altitude, ex_temp)
+            gestion_courbes.courbe_atmo_temperature(atmo_a_modifier, ex_altitude, ex_temp, avion_a_modifier)
             break
 
         elif choix == 2:
