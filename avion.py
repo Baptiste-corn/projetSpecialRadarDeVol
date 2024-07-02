@@ -1,3 +1,4 @@
+
 class Avion:
     def __init__(self, modele, numero_vol, altitude, ground_speed, heading, lon, lat):
         self.modele = modele
@@ -7,6 +8,8 @@ class Avion:
         self.heading = heading
         self.lon = lon
         self.lat = lat
+        self.parametre = None  # On initialise plus tard
+
         # heading
         # Consommation
         # Temps de vol
