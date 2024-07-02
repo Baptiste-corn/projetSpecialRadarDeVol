@@ -1,4 +1,3 @@
-import parametres
 
 class Avion:
     def __init__(self, modele, numero_vol, altitude, ground_speed, heading, lon, lat):

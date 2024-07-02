@@ -6,7 +6,7 @@ Modèles à viser :
 """
 
 from FlightRadar24 import FlightRadar24API
-import Avion
+import avion
 import atmosphere
 import parametres
 import entrees_utilisateur
@@ -34,7 +34,7 @@ def main():
     dico = get_dict_parametre()
 
     for j in range(len(liste_avions)): # modele = liste... . aircraft_code
-        nouvel_avion = Avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
+        nouvel_avion = avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
                                    , liste_avions[j].ground_speed, liste_avions[j].heading, liste_avions[j].longitude
                                    , liste_avions[j].latitude)
         nouvel_avion.parametre = dico[nouvel_avion.modele]  # modele de la classe Avion = aircraft code de l'API

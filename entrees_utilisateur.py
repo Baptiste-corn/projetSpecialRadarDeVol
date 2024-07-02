@@ -2,14 +2,14 @@
 
 """
 import gestion_cartopy as gc
-import Avion
+import avion
 import atmosphere
 
 def guest(avions):
     gc.affichage_carte(avions)
 
 
-def tour_de_controle(avions: list[Avion], atmospheres: list[atmosphere.Atmosphere], numero_vol):
+def tour_de_controle(avions: list[avion.Avion], atmospheres: list[atmosphere.Atmosphere], numero_vol):
     for x in range(len(avions)):
         print(avions[x].get_numero_vol(), avions[x].get_altitude(), avions[x].get_ground_speed())
     avion = input('Avec quel avion voulez-vous intéragir ?\n')

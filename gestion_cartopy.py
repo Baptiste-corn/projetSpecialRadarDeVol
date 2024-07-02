@@ -9,7 +9,7 @@ from FlightRadar24 import FlightRadar24API
 import requests
 import math
 import main
-import Avion
+import avion
 
 
 def affichage_carte(avions):
