@@ -32,8 +32,7 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
             for i in range(len(avions)):
                 if avions[i].get_numero_vol() == numero_vol:
                     print(f'Vous souhaitez modifier l altitude du vol suivant :  '
-                          f'{avions[i].get_numero_vol()} volant à l altitude : {avions[i].get_altitude()} '
-                          f'ft soit , {int(avions[i].altitude)}m')
+                          f'{avions[i].get_numero_vol()} volant à l altitude {int(avions[i].altitude)}m')
 
                     avion_a_modifier = avions[i]
                     atmo_a_modifier = atmospheres[i]
@@ -59,8 +58,8 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
         elif choix == 2:
             for i in range(len(avions)):
                 if avions[i].get_numero_vol() == numero_vol:
-                    print('Vous souhaitez modifier la vitesse du vol suivant : ', avions[i].get_numero_vol()
-                          , 'volant à la vitesse :', avions[i].get_ground_speed())
+                    print(f'Vous souhaitez modifier la vitesse du vol suivant : {avions[i].get_numero_vol()}'
+                          f', volant à la vitesse : {avions[i].get_ground_speed()} m/s')
                     avion_a_modifier = avions[i]
                     atmo_a_modifier = atmospheres[i]
                     ex_altitude = avion_a_modifier.get_altitude()

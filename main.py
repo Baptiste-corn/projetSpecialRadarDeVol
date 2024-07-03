@@ -44,6 +44,7 @@ def main():
 
         liste_objets_atmo.append(atmosphere.Atmosphere(nouvel_avion.get_altitude()))
 
+    print('Voici la liste des avions actuellement en vol : \n')
     print("".join(liste_idd_avion))
 
     user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter\n'))

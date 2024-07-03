@@ -12,6 +12,9 @@ class Parametres:
         self.cd0 = cd0
         self.vitesse_max = vitesse_max
 
+    def cl_avec_portance (self, ground_speed, densite):
+        return self.portance_L() / (0.5 * densite * self.surface * ground_speed**2)
+
     def vitesse_convertie(self, ground_speed):
         return ground_speed * 0.5144
 
@@ -33,8 +36,7 @@ class Parametres:
     def portance_L(self):
         return self.masse * 9.81  # Vol en palier
     
-    def cl_avec_portance (self, ground_speed, densite):
-        return self.portance_L() / (0.5 * densite * self.surface * ground_speed**2)
+
 
     def allongement_AR_2(self):
         return self.envergure**2 / self.surface

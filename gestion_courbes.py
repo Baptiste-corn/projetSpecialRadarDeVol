@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 
+
 def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite, ex_finesse, avion):
     altitude_apres = atmosphere.get_altitude()
     temperature_apres = atmosphere.get_temperature()
