@@ -37,7 +37,7 @@ def main():
 
     for j in range(len(liste_avions)): # modele = liste... . aircraft_code
         nouvel_avion = avion.Avion(liste_avions[j].aircraft_code, liste_avions[j].number, liste_avions[j].altitude
-                                   , liste_avions[j].ground_speed, liste_avions[j].heading, liste_avions[j].longitude
+                                   , liste_avions[j].ground_speed * 0.5144, liste_avions[j].heading, liste_avions[j].longitude
                                    , liste_avions[j].latitude)
         nouvel_avion.parametre = dico[nouvel_avion.modele]  # modele de la classe Avion = aircraft code de l'API
         liste_objets_avion.append(nouvel_avion)
@@ -52,6 +52,7 @@ def main():
     while user != 1 or user != 2:
         if user == 1:
             entrees_utilisateur.guest(liste_objets_avion)
+            print(len(liste_objets_avion))
             break
         elif user == 2:
             numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?\n')

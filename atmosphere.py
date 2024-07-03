@@ -61,7 +61,10 @@ class Atmosphere:
         # L est la constante de gradient thermique, et h est l'altitude en mètres
         T0 = 288.15  # K
         L = 0.0065  # K/m
-        return T0 - L * self.altitude
+        if self.altitude <= 11000:
+            return T0 - L * self.altitude
+        else:
+            return 216.66
 
     def gravite(self):
         rayonTerre = 6371  # km
