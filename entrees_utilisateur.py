@@ -11,10 +11,10 @@ def guest(avions):
     gc.affichage_carte(avions)
 
 
-def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_vol):
-    for x in range(len(avions)):
-        print(avions[x].get_numero_vol(), avions[x].get_altitude(), avions[x].get_ground_speed())
-    avion = input('Avec quel avion voulez-vous intéragir ?\n')
+def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_vol, liste_idd_avion):
+    """for x in range(len(avions)):
+        print(avions[x].get_numero_vol(), avions[x].get_altitude(), avions[x].get_ground_speed())"""
+    # avion = input('Avec quel avion voulez-vous intéragir ?\n')
     choix = int(input('Quel paramètre de vol souhaitez-vous modifier ?  \n1) Altitude \n2) Vitesse ?'))
     ex_altitude = 0
     ex_temp = 0
@@ -25,13 +25,15 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
     ex_trainee = 0
     ex_finesse = 0
 
+    print("".join(liste_idd_avion))
+
     while choix != 1 or choix != 2:
         if choix == 1:
             for i in range(len(avions)):
-                print('ICI ', avions[i].get_numero_vol())
-                if avions[i].get_numero_vol() == avion:
-                    print('Vous souhaitez modifier l altitude du vol suivant : ', avions[i].get_numero_vol()
-                          , 'volant à l altitude :', avions[i].get_altitude())
+                if avions[i].get_numero_vol() == numero_vol:
+                    print(f'Vous souhaitez modifier l altitude du vol suivant :  '
+                          f'{avions[i].get_numero_vol()} volant à l altitude : {avions[i].get_altitude()} '
+                          f'ft soit , {int(avions[i].altitude)}m')
 
                     avion_a_modifier = avions[i]
                     atmo_a_modifier = atmospheres[i]
@@ -44,24 +46,21 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
                     ex_trainee = avion_a_modifier.parametre.trainee(ex_vitesse, ex_densite)
                     ex_finesse = avion_a_modifier.parametre.finesse(ex_vitesse, ex_densite)
 
-                    print('coucou ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature())
+                    # print('coucou ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature())
 
             nouvelle_altitude = int(input('Quelle est la nouvelle altitude en mètres à atteindre pour ce vol ?'))
             avion_a_modifier.set_altitude(nouvelle_altitude)
             atmo_a_modifier.set_altitude(nouvelle_altitude)
-            print('COUCOUC ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature(), avion_a_modifier)
+            # print('COUCOUC ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature(), avion_a_modifier)
 
-            for c in range(len(avions)):
-                print(avions[c].get_numero_vol(), avions[c].get_altitude())
-
-            gestion_courbes.courbe_atmo_temperature(atmo_a_modifier, ex_altitude, ex_temp, ex_densite, avion_a_modifier)
+            gestion_courbes.courbe_atmo_temperature(atmo_a_modifier, ex_altitude, ex_temp, ex_densite, ex_finesse, avion_a_modifier)
             break
 
         elif choix == 2:
             for i in range(len(avions)):
-                if avions[i].get_numero_vol() == avion:
+                if avions[i].get_numero_vol() == numero_vol:
                     print('Vous souhaitez modifier la vitesse du vol suivant : ', avions[i].get_numero_vol()
-                          , 'volant à l altitude :', avions[i].get_ground_speed())
+                          , 'volant à la vitesse :', avions[i].get_ground_speed())
                     avion_a_modifier = avions[i]
                     atmo_a_modifier = atmospheres[i]
                     ex_altitude = avion_a_modifier.get_altitude()
@@ -76,7 +75,5 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
             nouvelle_vitesse = int(input('Quelle est la nouvelle vitesse à atteindre pour ce vol ?'))
             avion_a_modifier.set_ground_speed(nouvelle_vitesse)
 
-            for c in range(len(avions)):
-                print(avions[c].get_numero_vol(), avions[c].get_ground_speed())
             gestion_courbes.courbe_coefs_finesse_pour_vitesse(atmo_a_modifier, ex_altitude, ex_vitesse, ex_coef_portance, ex_coef_trainee, ex_trainee, ex_finesse, avion_a_modifier)
             break

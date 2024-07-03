@@ -43,7 +43,7 @@ class Parametres:
         if self.get_angle_fleche() > 30:
             return 4.61 * (1 - 0.045 * self.allongement_AR_2() ** 0.68) * (math.cos(self.angle_fleche)) ** 0.15 - 3.1
         else:
-            return 0.8
+            return 1.78 * (1 - 0.045 * self.allongement_AR_2() ** 0.68) - 0.64
 
     def correction_k_2(self):
         return 1 / (math.pi * self.oswald_factor_e_2() * self.allongement_AR_2())

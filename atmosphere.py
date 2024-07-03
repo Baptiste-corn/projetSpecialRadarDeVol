@@ -4,7 +4,7 @@ import math
 
 class Atmosphere:
     def __init__(self, altitude):
-        self.altitude = altitude * 0.3048
+        self.altitude = altitude
         self.liste_temperature = [
             (0, 288.15, 101.235, 1.225),
             (1000, 281.65, 89.876, 1.1117),

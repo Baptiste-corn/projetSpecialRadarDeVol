@@ -44,4 +44,4 @@ class Avion:
 
     def affichage_vol(self):
         return ('<' + self.modele + '>' + ' - ' + self.numero_vol + ' - ' + 'Altitude : ' + str(self.altitude) + ' - '
-                + 'Vitesse : ' + str(self.ground_speed) + ' - ' + 'Heading : ' + str(self.heading))
+                + 'Vitesse : ' + str(self.ground_speed) + ' - ' + 'Heading : ' + str(self.heading) + '\n')
