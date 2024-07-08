@@ -11,7 +11,7 @@ import atmosphere
 import parametres
 import entrees_utilisateur
 from controle_vol import get_dict_parametre
-import numpy as np
+import sphinx
 
 fr_api = FlightRadar24API()
 flight = fr_api.get_flights()

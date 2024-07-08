@@ -9,7 +9,6 @@ class Avion:
         self.lon = lon
         self.lat = lat
         self.parametre = None  # On initialise plus tard
-
         # heading
         # Consommation
         # Temps de vol
