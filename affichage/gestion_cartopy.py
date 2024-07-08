@@ -8,7 +8,7 @@ def affichage_carte(avions):
     Affiche une carte interactive montrant les positions et informations de vol des avions.
 
     Cette fonction utilise GeoPandas pour charger les données de carte, Plotly pour créer une figure interactive
-    et ajouter les positions des avions avec leurs informations de vol (altitude et vitesse).
+    et ajouter les positions des avions avec leurs informations de vol (altitude, vitesse, numéro de vol et position).
 
     :param avions: Liste des objets avion contenant les informations de vol (numéro de vol, longitude, latitude
     , altitude, vitesse au sol).
