@@ -8,7 +8,8 @@ Plus spécifiquement, le projet est orienté en 3 axes :
 
 Il permet aussi de visualiser les vols sur une carte via le mode Utilisateur au lancement. 
 ## Contenu du repository
-
+### Dossier 110m_cultural
+Nécéssite d'être installé dans le même dossier que le projet. Il contient le fichier d'affichage de la carte du monde.
 ### Module classes
 #### Classe Atmosphère
 Cette classe contient une altitude et un tuple avec des altitudes et la température, pression et densité associée. Ce tuple sert principalement à comparer les valeurs des différentes propriétés atmosphériques issues de nos calculs avec la table. Nous allons aborder les fonctions qui nécessitent des éclaircissements : 
