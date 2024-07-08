@@ -3,6 +3,8 @@ Fichier main de test API flightradar24
 Modèles à viser :
 - A320, A380, A330
 - B777, B737, B787, B727, B747
+
+Normalement ça va sur sphinx
 """
 
 from FlightRadar24 import FlightRadar24API
