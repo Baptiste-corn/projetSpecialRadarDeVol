@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd40ec45-60d4-456b-a700-86a3df1f1f29" name="Changes" comment="class Parametres et correction bugs">
+      <change afterPath="$PROJECT_DIR$/.idea/ProjetSpécial_Simu_Conditions_Vol.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atmosphere.py" beforeDir="false" afterPath="$PROJECT_DIR$/atmosphere.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avion.py" beforeDir="false" afterPath="$PROJECT_DIR$/avion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controle_vol.py" beforeDir="false" afterPath="$PROJECT_DIR$/controle_vol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parametres.py" beforeDir="false" afterPath="$PROJECT_DIR$/parametres.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Baptiste-corn &lt;61588561+baptiste-corn@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2iFmXXO6Ruwl1LzCfGDY4foIeRa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Avion.executor&quot;: &quot;Run&quot;,
+    &quot;Python.atmosphere.executor&quot;: &quot;Run&quot;,
+    &quot;Python.avion.executor&quot;: &quot;Run&quot;,
+    &quot;Python.controle_vol.executor&quot;: &quot;Run&quot;,
+    &quot;Python.entrees_utilisateur.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gestion_cartopy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gestion_courbes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.parametres.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;conditionsDeVol&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bapti/Desktop/ETS/Ete_2024/MGA802/MiniProjetB-IntegrationNumerique/IntegrationNumerique-main/IntegrationNumerique-main&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd40ec45-60d4-456b-a700-86a3df1f1f29" name="Changes" comment="" />
+      <created>1719094739752</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719094739752</updated>
+    </task>
+    <task id="LOCAL-00001" summary="création classes Avion et Atmosphère">
+      <option name="closed" value="true" />
+      <created>1719096060909</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719096060909</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Créagtion condition de vol avec les paramètres aéro portance et trainées&#10;Surface, envergure, angle de fléche en dur pour l'instant">
+      <option name="closed" value="true" />
+      <created>1719876178834</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719876178834</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Ajout des attributs masse, surface, envergure, angle_fleche, cd0 et leur get dans avion&#10;optimisation et simplification des fonctions de calculs dans controle_vol en passant juste un objet Avion en parametre">
+      <option name="closed" value="true" />
+      <created>1719945043088</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719945043088</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Test pull master">
+      <option name="closed" value="true" />
+      <created>1719945794886</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719945794886</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Test pull master">
+      <option name="closed" value="true" />
+      <created>1719948424223</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719948424223</updated>
+    </task>
+    <task id="LOCAL-00006" summary="class Parametres et correction bugs">
+      <option name="closed" value="true" />
+      <created>1719953174565</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719953174565</updated>
+    </task>
+    <task id="LOCAL-00007" summary="class Parametres et correction bugs">
+      <option name="closed" value="true" />
+      <created>1719953189417</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719953189417</updated>
+    </task>
+    <task id="LOCAL-00008" summary="creation objet Avion contenant classe Parametre">
+      <option name="closed" value="true" />
+      <created>1719955372071</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719955372071</updated>
+    </task>
+    <task id="LOCAL-00009" summary="class Parametres et correction bugs">
+      <option name="closed" value="true" />
+      <created>1719955766170</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719955766170</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="création classes Avion et Atmosphère" />
+    <MESSAGE value="Créagtion condition de vol avec les paramètres aéro portance et trainées&#10;Surface, envergure, angle de fléche en dur pour l'instant" />
+    <MESSAGE value="Ajout des attributs masse, surface, envergure, angle_fleche, cd0 et leur get dans avion&#10;optimisation et simplification des fonctions de calculs dans controle_vol en passant juste un objet Avion en parametre" />
+    <MESSAGE value="Test pull master" />
+    <MESSAGE value="creation objet Avion contenant classe Parametre" />
+    <MESSAGE value="class Parametres et correction bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="class Parametres et correction bugs" />
+  </component>
+</project>
