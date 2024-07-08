@@ -1,31 +1,30 @@
-"""
-
-"""
-import avion
-import atmosphere
-import parametres
 import matplotlib.pyplot as plt
 import numpy as np
 import math
 
 
 def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite, ex_finesse, avion):
+    """
+    Génère des courbes de température, densité et finesse selon l'altitude avant et après modification.
+
+    Cette fonction crée des graphiques montrant les distributions de la température, de la densité et de la finesse
+    en fonction de l'altitude pour un avion spécifique avant et après une modification de l'altitude de vol.
+
+    :param atmosphere: Objet atmosphere contenant les informations atmosphériques.
+    :param ex_altitude: Altitude avant modification.
+    :param ex_temperature: Température avant modification.
+    :param ex_densite: Densité avant modification.
+    :param ex_finesse: Finesse avant modification.
+    :param avion: Objet avion contenant les informations du vol.
+    :return: None
+    """
+    # Récupérartion des valeurs après la modification de la vitesse (valeurs actuelles des attributs des objets)
     altitude_apres = atmosphere.get_altitude()
     temperature_apres = atmosphere.get_temperature()
     densite_apres = atmosphere.density()[0]
     finesse_apres = avion.parametre.finesse(avion.ground_speed, atmosphere.density()[0])
 
-    """axe_temp1 = np.linspace(288.15, 223.26, 64)
-    axe_temp2 = np.linspace(216.66, 216.66, 36)
-    axe_temp_concatene = np.concatenate((axe_temp1,axe_temp2))
-    
-    axe_altitude = np.linspace(0, 15000, 100)
-    
-    index_temp_const = np.searchsorted(axe_altitude,11000)
-    axe_temp1 = np.linspace(288.15, 216.66, index_temp_const)
-    axe_temp2 = np.full(100 - index_temp_const, 216.66)
-    axe_temp_concatene = np.concatenate((axe_temp1, axe_temp2))"""
-
+    # Valeurs de début et de fin des listes pour les axes des courbes
     altitude_start = 0
     altitude_end = 15000
     altitude_transition = 11000
@@ -54,7 +53,8 @@ def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite,
     axe_densite = np.linspace(1.225, 0.195, N)
 
     # Cet axe s'assure de la validation des états avant modif et après modif
-    axe_finesse = np.linspace(avion.parametre.finesse(avion.ground_speed, 1.225),avion.parametre.finesse(avion.ground_speed, 0.195) ,N)
+    axe_finesse = np.linspace(avion.parametre.finesse(avion.ground_speed, 1.225),
+                              avion.parametre.finesse(avion.ground_speed, 0.195), N)
 
     plt.figure()
     plt.plot(axe_altitude, axe_temp_concatene)
@@ -90,6 +90,24 @@ def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite,
 
 
 def courbe_coefs_finesse_pour_vitesse(atmosphere, ex_altitude, ex_vitesse, ex_coef_portance, ex_coef_trainee, ex_trainee, ex_finesse, avion):
+    """
+    Génère des courbes de coefficients de portance, de traînée, de traînée et de finesse selon la vitesse
+    avant et après modification.
+
+    Cette fonction crée des graphiques montrant les distributions des coefficients de portance, de traînée,
+    de la traînée et de la finesse en fonction de la vitesse pour un avion spécifique avant et après une modification
+    de la vitesse de vol.
+
+    :param atmosphere: Objet atmosphere contenant les informations atmosphériques.
+    :param ex_altitude: Altitude avant modification.
+    :param ex_vitesse: Vitesse avant modification.
+    :param ex_coef_portance: Coefficient de portance avant modification.
+    :param ex_coef_trainee: Coefficient de traînée avant modification.
+    :param ex_trainee: Traînée avant modification.
+    :param ex_finesse: Finesse avant modification.
+    :param avion: Objet avion contenant les informations du vol.
+    :return: None
+    """
     coefficients_portance = []
     coefficients_trainee = []
     trainee = []
@@ -105,22 +123,55 @@ def courbe_coefs_finesse_pour_vitesse(atmosphere, ex_altitude, ex_vitesse, ex_co
     axe_altitude = np.linspace(0, 15000, 100)
     axe_vitesse = np.linspace(50, avion.parametre.vitesse_max, 100)
 
+    # Fonctions pour calculer les listes de coefficients et finesse selon la vitesse
     def liste_coef_portance():
+        """
+        Calcule les coefficients de portance pour une gamme de vitesses.
+
+        Cette fonction génère une liste des coefficients de portance (Cl) pour des vitesses allant de 50 m/s
+        à la vitesse maximale de l'avion, en utilisant la densité de l'atmosphère actuelle.
+
+        :return: Liste des coefficients de portance.
+        """
         for i in range(100):
             coefficients_portance.append(avion.parametre.cl_avec_portance(axe_vitesse[i], atmosphere.density()[0]))
         return coefficients_portance
 
     def liste_coef_trainee():
+        """
+        Calcule les coefficients de traînée pour une gamme de vitesses.
+
+        Cette fonction génère une liste des coefficients de traînée (Cd) pour des vitesses allant de 50 m/s
+        à la vitesse maximale de l'avion, en utilisant la densité de l'atmosphère actuelle.
+
+        :return: Liste des coefficients de traînée.
+        """
         for i in range(100):
             coefficients_trainee.append(avion.parametre.coef_trainee_2(axe_vitesse[i], atmosphere.density()[0]))
         return coefficients_trainee
 
     def liste_trainee():
+        """
+        Calcule la traînée pour une gamme de vitesses.
+
+        Cette fonction génère une liste de la traînée (en Newtons) pour des vitesses allant de 50 m/s
+        à la vitesse maximale de l'avion, en utilisant la densité de l'atmosphère actuelle.
+
+        :return: Liste de la traînée.
+        """
         for i in range(100):
             trainee.append(avion.parametre.trainee(axe_vitesse[i], atmosphere.density()[0]))
         return trainee
 
     def liste_finesse():
+        """
+        Calcule la finesse pour une gamme de vitesses.
+
+        Cette fonction génère une liste de la finesse (rapport portance/traînée) pour des vitesses allant de 50 m/s
+        à la vitesse maximale de l'avion, en utilisant la densité de l'atmosphère actuelle.
+
+        :return: Liste de la finesse.
+        """
         for i in range(100):
             finesse.append(avion.parametre.finesse(axe_vitesse[i], atmosphere.density()[0]))
         return finesse

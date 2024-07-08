@@ -1,4 +1,16 @@
+"""
+Contient la classe Parametres dont chaque objet est créé à partir de la récupération de l'altitude de chaque vol
+récupéré par l'API de FlightRadar24.
 
+Utilisation (pour créer un objet) :
+
+        param = parametres.Parametres(envergure, surface, masse, angle_fleche, cd0, vitesse_max)
+
+        Exemple :
+        param = parametres.Parametres(60.3, 361.6, 242000, 30, 0.025, 253.61)
+
+Auteur : Baptiste Corn
+"""
 import math
 
 
@@ -54,5 +66,5 @@ class Parametres:
         return (0.5 * densite * self.vitesse_convertie(ground_speed) ** 2 * self.get_surface()
                 * self.coef_trainee_2(ground_speed, densite))
 
-    def finesse(self, ground_speed, density):
-        return self.cl_avec_portance(ground_speed, density) / self.coef_trainee_2(ground_speed, density)
+    def finesse(self, ground_speed, densite):
+        return self.cl_avec_portance(ground_speed, densite) / self.coef_trainee_2(ground_speed, densite)

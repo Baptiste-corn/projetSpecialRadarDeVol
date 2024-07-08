@@ -1,6 +1,3 @@
-"""
-
-"""
 import gestion_cartopy as gc
 import avion
 import atmosphere
@@ -8,10 +5,29 @@ import gestion_courbes
 
 
 def guest(avions):
+    """
+
+    :param avions:
+    :return:
+    """
     gc.affichage_carte(avions)
 
 
 def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_vol, liste_idd_avion):
+    """
+
+    Permet de modifier les paramètres de vol (altitude ou vitesse) d'un avion spécifique.
+
+    Cette fonction demande à l'utilisateur quel paramètre (altitude ou vitesse) il souhaite modifier pour un vol
+    spécifique. Elle met à jour l'altitude ou la vitesse de l'avion et ajuste les paramètres atmosphériques
+    correspondants. Elle génère ensuite des courbes pour visualiser les changements.
+
+    :param avions: Liste des objets avion contenant les informations des vols.
+    :param atmospheres: Liste des objets atmosphere correspondant à chaque avion.
+    :param numero_vol: Numéro de vol de l'avion dont les paramètres doivent être modifiés.
+    :param liste_idd_avion: Liste des identifiants des avions pour affichage.
+    :return: None
+    """
     choix = int(input('Quel paramètre de vol souhaitez-vous modifier ?  \n1) Altitude \n2) Vitesse ?'))
     ex_altitude = 0
     ex_temp = 0
