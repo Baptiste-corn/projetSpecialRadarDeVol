@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>affichage package &#8212; Flight Radar  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="affichage-package">
+<h1>affichage package<a class="headerlink" href="#affichage-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-affichage.gestion_cartopy">
+<span id="affichage-gestion-cartopy-module"></span><h2>affichage.gestion_cartopy module<a class="headerlink" href="#module-affichage.gestion_cartopy" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="affichage.gestion_cartopy.affichage_carte">
+<span class="sig-prename descclassname"><span class="pre">affichage.gestion_cartopy.</span></span><span class="sig-name descname"><span class="pre">affichage_carte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#affichage.gestion_cartopy.affichage_carte" title="Link to this definition">¶</a></dt>
+<dd><p>Affiche une carte interactive montrant les positions et informations de vol des avions.</p>
+<p>Cette fonction utilise GeoPandas pour charger les données de carte, Plotly pour créer une figure interactive
+et ajouter les positions des avions avec leurs informations de vol (altitude et vitesse).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>avions</strong> – Liste des objets avion contenant les informations de vol (numéro de vol, longitude, latitude</p>
+</dd>
+</dl>
+<p>, altitude, vitesse au sol).
+:return: None</p>
+</dd></dl>
+
+</section>
+<section id="module-affichage.gestion_courbes">
+<span id="affichage-gestion-courbes-module"></span><h2>affichage.gestion_courbes module<a class="headerlink" href="#module-affichage.gestion_courbes" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="affichage.gestion_courbes.courbe_atmo_temperature">
+<span class="sig-prename descclassname"><span class="pre">affichage.gestion_courbes.</span></span><span class="sig-name descname"><span class="pre">courbe_atmo_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atmosphere</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_densite</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_finesse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avion</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#affichage.gestion_courbes.courbe_atmo_temperature" title="Link to this definition">¶</a></dt>
+<dd><p>Génère des courbes de température, densité et finesse selon l’altitude avant et après modification.</p>
+<p>Cette fonction crée des graphiques montrant les distributions de la température, de la densité et de la finesse
+en fonction de l’altitude pour un avion spécifique avant et après une modification de l’altitude de vol.
+Les courbes tracées sont basées sur des modèles déjà existants et servent de validation des données transformées.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atmosphere</strong> – Objet atmosphere contenant les informations atmosphériques.</p></li>
+<li><p><strong>ex_altitude</strong> – Altitude avant modification.</p></li>
+<li><p><strong>ex_temperature</strong> – Température avant modification.</p></li>
+<li><p><strong>ex_densite</strong> – Densité avant modification.</p></li>
+<li><p><strong>ex_finesse</strong> – Finesse avant modification.</p></li>
+<li><p><strong>avion</strong> – Objet avion contenant les informations du vol.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="affichage.gestion_courbes.courbe_coefs_finesse_pour_vitesse">
+<span class="sig-prename descclassname"><span class="pre">affichage.gestion_courbes.</span></span><span class="sig-name descname"><span class="pre">courbe_coefs_finesse_pour_vitesse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atmosphere</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_altitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_vitesse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_coef_portance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_coef_trainee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_trainee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ex_finesse</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avion</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#affichage.gestion_courbes.courbe_coefs_finesse_pour_vitesse" title="Link to this definition">¶</a></dt>
+<dd><p>Génère des courbes de coefficients de portance, de traînée, de traînée et de finesse selon la vitesse
+avant et après modification.</p>
+<p>Cette fonction crée des graphiques montrant les distributions des coefficients de portance, de traînée,
+de la traînée et de la finesse en fonction de la vitesse pour un avion spécifique avant et après une modification
+de la vitesse de vol.
+Les courbes tracées sont basées sur des modèles déjà existants et servent de validation des données transformées.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atmosphere</strong> – Objet atmosphere contenant les informations atmosphériques.</p></li>
+<li><p><strong>ex_altitude</strong> – Altitude avant modification.</p></li>
+<li><p><strong>ex_vitesse</strong> – Vitesse avant modification.</p></li>
+<li><p><strong>ex_coef_portance</strong> – Coefficient de portance avant modification.</p></li>
+<li><p><strong>ex_coef_trainee</strong> – Coefficient de traînée avant modification.</p></li>
+<li><p><strong>ex_trainee</strong> – Traînée avant modification.</p></li>
+<li><p><strong>ex_finesse</strong> – Finesse avant modification.</p></li>
+<li><p><strong>avion</strong> – Objet avion contenant les informations du vol.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-affichage">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-affichage" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Flight Radar</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Augustin Montredon & Baptiste Corn.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/affichage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
