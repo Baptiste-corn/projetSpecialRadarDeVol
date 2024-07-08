@@ -1,10 +1,23 @@
-# Basée sur la classe atmosphere vu en cours
+"""
+Contient la classe atmosphere dont chaque objet est créé à partir de la récupération de l'altitude de chaque vol
+récupéré par l'API de FlightRadar24.
+
+Utilisation (pour créer un objet) :
+
+        atmo1 = atmosphere.Atmosphere(altitude)
+
+        Exemple :
+        atmo1 = atmosphere.Atmosphere(9000)
+
+Auteurs : Baptiste Corn, Augustin Montredon
+"""
+
 import math
 
 
 class Atmosphere:
     def __init__(self, altitude):
-        self.altitude = altitude * 0.3048
+        self.altitude = altitude
         self.liste_temperature = [
             (0, 288.15, 101.235, 1.225),
             (1000, 281.65, 89.876, 1.1117),
@@ -61,11 +74,14 @@ class Atmosphere:
         # L est la constante de gradient thermique, et h est l'altitude en mètres
         T0 = 288.15  # K
         L = 0.0065  # K/m
-        return T0 - L * self.altitude
+        if self.altitude <= 11000:
+            return T0 - L * self.altitude
+        else:
+            return 216.66
 
     def gravite(self):
         rayonTerre = 6371  # km
-        gravite = 6, 674 * 10 ** (-11) * (rayonTerre / (rayonTerre + self.altitude)) ** 2
+        gravite = 6.674 * 10 ** (-11) * (rayonTerre / (rayonTerre + self.altitude)) ** 2
         return gravite
 
     def set_altitude(self, nouvelle_altitude):

@@ -1,11 +1,21 @@
+
 import math
+
+
 class Parametres:
-    def __init__(self, envergure, surface, masse, angle_fleche, cd0):
+    def __init__(self, envergure, surface, masse, angle_fleche, cd0, vitesse_max):
         self.envergure = envergure
         self.surface = surface
         self.masse = masse
         self.angle_fleche = angle_fleche
         self.cd0 = cd0
+        self.vitesse_max = vitesse_max
+
+    def cl_avec_portance (self, ground_speed, densite):
+        return self.portance_L() / (0.5 * densite * self.surface * ground_speed**2)
+
+    def vitesse_convertie(self, ground_speed):
+        return ground_speed * 0.5144
 
     def get_envergure(self):
         return self.envergure
@@ -24,9 +34,6 @@ class Parametres:
 
     def portance_L(self):
         return self.masse * 9.81  # Vol en palier
-    
-    def cl_avec_portance (self, ground_speed, densite):
-        return self.portance_L() / (0.5 * densite * self.surface * ground_speed**2)
 
     def allongement_AR_2(self):
         return self.envergure**2 / self.surface
@@ -42,10 +49,11 @@ class Parametres:
 
     def coef_trainee_2(self, ground_speed, densite):
         return self.get_cd0() + self.correction_k_2() * self.cl_avec_portance(ground_speed, densite)
+
     def trainee(self, ground_speed, densite):
-        return 0.5 * densite * ground_speed **2 * self.get_surface() * self.coef_trainee_2(ground_speed, densite)
+        return (0.5 * densite * self.vitesse_convertie(ground_speed) ** 2 * self.get_surface()
+                * self.coef_trainee_2(ground_speed, densite))
 
-    def finesse(self, ground_speed, densite):
-        return self.cl_avec_portance(ground_speed, densite) / self.coef_trainee_2(ground_speed, densite)
-
+    def finesse(self, ground_speed, density):
+        return self.cl_avec_portance(ground_speed, density) / self.coef_trainee_2(ground_speed, density)
 

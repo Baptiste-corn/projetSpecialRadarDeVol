@@ -4,12 +4,6 @@
 import geopandas as gpd
 import plotly.express as px
 import plotly.graph_objects as go
-from shapely.geometry import LineString
-from FlightRadar24 import FlightRadar24API
-import requests
-import math
-import main
-import avion
 
 
 def affichage_carte(avions):
@@ -28,7 +22,8 @@ def affichage_carte(avions):
 
     # Exemple de trajectoire
     cities = [
-        {"name": avion.get_numero_vol(), "lon": avion.get_lon(), "lat": avion.get_lat()} for avion in avions
+        {"name": avion.get_numero_vol(), "lon": avion.get_lon(), "lat": avion.get_lat(), "altitude": avion.altitude
+            , "ground_speed": avion.ground_speed} for avion in avions
     ]
 
     # Ajouter la trajectoire
@@ -36,7 +31,7 @@ def affichage_carte(avions):
         mode="markers+text",
         lon=[city["lon"] for city in cities],
         lat=[city["lat"] for city in cities],
-        text=[city["name"] for city in cities],
+        text=[city["name"] + ", Altitude: " + str(city["altitude"]) + "m, Speed: " + str(city["ground_speed"]) + "m/s" for city in cities],
         textposition="top right",
         marker={'size': 10, 'color': "red"},
         line=dict(width=2, color='red')
