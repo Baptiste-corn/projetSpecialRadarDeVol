@@ -11,6 +11,11 @@ Il permet aussi de visualiser les vols sur une carte via le mode Utilisateur au 
 
 ### Module classes
 ### Module affichage
+Regroupe les deux scripts liés à un affichage.  
+"gestion.cartopy.py" ouvre une carte sur votre navigateur par défaut en local et y affiche tous les vols récupérés par l'API de FlightRadar24, ainsi que leur numéro de vol, leur position, leur altitude et leur vitesse.  
+"gestion_courbes.py" est appelée dans "entrees_utilisateur.py" et affiche des courbes selon deux paramètres :
+- soit l'altitude;
+- soit la vitesse.
 #### gestion_cartopy.py
 
 #### gestion_courbes.py
