@@ -8,6 +8,11 @@ Plus spécifiquement, le projet est orienté en 3 axes :
 
 Il permet aussi de visualiser les vols sur une carte via le mode Utilisateur au lancement. 
 ## Contenu du repository
+### Documentation Sphinx
+Pour y accéder, télécharger tout le dossier du repository, éxecuter le main.py puis se rendre dans Pycharm et dans :
+- le dossier build
+- puis html
+- puis ouvrir le fichier index.html avec un navigateur.
 ### Dossier 110m_cultural
 Nécéssite d'être installé dans le même dossier que le projet. Il contient le fichier d'affichage de la carte du monde.
 ### Module classes
