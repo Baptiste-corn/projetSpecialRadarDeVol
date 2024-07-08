@@ -1,34 +1,47 @@
-# Basée sur la classe atmosphere vu en cours
+"""
+Contient la classe atmosphere dont chaque objet est créé à partir de la récupération de l'altitude de chaque vol
+récupéré par l'API de FlightRadar24.
+
+Utilisation (pour créer un objet) :
+
+        atmo1 = atmosphere.Atmosphere(altitude)
+
+        Exemple :
+        atmo1 = atmosphere.Atmosphere(9000)
+
+Auteurs : Baptiste Corn, Augustin Montredon
+"""
+
 import math
 
 
 class Atmosphere:
     def __init__(self, altitude):
-        self.altitude = altitude * 0.3048
+        self.altitude = altitude
         self.liste_temperature = [
-            (0, 288.15),
-            (1000, 281.65),
-            (2000, 275.15),
-            (3000, 268.67),
-            (4000, 262.18),
-            (5000, 255.69),
-            (6000, 249.2),
-            (7000, 242.71),
-            (8000, 236.23),
-            (9000, 229.74),
-            (10000, 223.26),
-            (11000, 216.78),
-            (12000, 216.66),
-            (13000, 216.66),
-            (14000, 216.66),
-            (15000, 216.66)
+            (0, 288.15, 101.235, 1.225),
+            (1000, 281.65, 89.876, 1.1117),
+            (2000, 275.15, 79.501, 1.007),
+            (3000, 268.67, 70.121, 0.9093),
+            (4000, 262.18, 61.66, 0.8193),
+            (5000, 255.69, 54.048, 0.7364),
+            (6000, 249.2, 47.217, 0.6601),
+            (7000, 242.71, 41.105, 0.59),
+            (8000, 236.23, 35.651, 0.526),
+            (9000, 229.74, 30.8, 0.467),
+            (10000, 223.26, 26.5, 0.413),
+            (11000, 216.78, 22.7, 0.365),
+            (12000, 216.66, 19.399, 0.312),
+            (13000, 216.66, 16.579, 0.267),
+            (14000, 216.66, 14.17, 0.228),
+            (15000, 216.66, 12.112, 0.195)
         ]
 
     def get_altitude(self):
         return self.altitude
 
     def get_temperature(self):
-        for altitude, temperature in self.liste_temperature:
+        for altitude, temperature, _, _ in self.liste_temperature:
             if self.altitude <= altitude:
                 return temperature
         return self.liste_temperature[-1][1]
@@ -61,11 +74,14 @@ class Atmosphere:
         # L est la constante de gradient thermique, et h est l'altitude en mètres
         T0 = 288.15  # K
         L = 0.0065  # K/m
-        return T0 - L * self.altitude
+        if self.altitude <= 11000:
+            return T0 - L * self.altitude
+        else:
+            return 216.66
 
     def gravite(self):
         rayonTerre = 6371  # km
-        gravite = 6, 674 * 10 ** (-11) * (rayonTerre / (rayonTerre + self.altitude)) ** 2
+        gravite = 6.674 * 10 ** (-11) * (rayonTerre / (rayonTerre + self.altitude)) ** 2
         return gravite
 
     def set_altitude(self, nouvelle_altitude):
