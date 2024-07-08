@@ -1,4 +1,17 @@
-# Basée sur la classe atmosphere vu en cours
+"""
+Contient la classe atmosphere dont chaque objet est créé à partir de la récupération de l'altitude de chaque vol
+récupéré par l'API de FlightRadar24.
+
+Utilisation (pour créer un objet) :
+
+        atmo1 = atmosphere.Atmosphere(altitude)
+
+        Exemple :
+        atmo1 = atmosphere.Atmosphere(9000)
+
+Auteurs : Baptiste Corn, Augustin Montredon
+"""
+
 import math
 
 

@@ -6,13 +6,10 @@ Modèles à viser :
 """
 
 from FlightRadar24 import FlightRadar24API
-import parametres
 import avion
 import atmosphere
-import gestion_cartopy as gc
 import entrees_utilisateur
 from controle_vol import get_dict_parametre
-import numpy as np
 
 fr_api = FlightRadar24API()
 flight = fr_api.get_flights()
@@ -29,8 +26,6 @@ def main():
     for i in range(len(flight)):
         if flight[i].aircraft_code in liste_modeles:
             liste_avions.append(flight[i])
-
-    # print(liste_avions)
 
     dico = get_dict_parametre()
 

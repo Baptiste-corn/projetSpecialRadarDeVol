@@ -12,9 +12,6 @@ def guest(avions):
 
 
 def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_vol, liste_idd_avion):
-    """for x in range(len(avions)):
-        print(avions[x].get_numero_vol(), avions[x].get_altitude(), avions[x].get_ground_speed())"""
-    # avion = input('Avec quel avion voulez-vous intéragir ?\n')
     choix = int(input('Quel paramètre de vol souhaitez-vous modifier ?  \n1) Altitude \n2) Vitesse ?'))
     ex_altitude = 0
     ex_temp = 0
@@ -45,12 +42,9 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
                     ex_trainee = avion_a_modifier.parametre.trainee(ex_vitesse, ex_densite)
                     ex_finesse = avion_a_modifier.parametre.finesse(ex_vitesse, ex_densite)
 
-                    # print('coucou ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature())
-
             nouvelle_altitude = int(input('Quelle est la nouvelle altitude en mètres à atteindre pour ce vol ?'))
             avion_a_modifier.set_altitude(nouvelle_altitude)
             atmo_a_modifier.set_altitude(nouvelle_altitude)
-            # print('COUCOUC ', atmo_a_modifier.get_altitude(), atmo_a_modifier.temperature(), avion_a_modifier)
 
             gestion_courbes.courbe_atmo_temperature(atmo_a_modifier, ex_altitude, ex_temp, ex_densite, ex_finesse, avion_a_modifier)
             break

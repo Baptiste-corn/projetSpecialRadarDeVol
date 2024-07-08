@@ -1,6 +1,5 @@
-from atmosphere import Atmosphere
+
 import math
-import avion
 
 
 class Parametres:
@@ -35,8 +34,6 @@ class Parametres:
 
     def portance_L(self):
         return self.masse * 9.81  # Vol en palier
-    
-
 
     def allongement_AR_2(self):
         return self.envergure**2 / self.surface
@@ -59,5 +56,3 @@ class Parametres:
 
     def finesse(self, ground_speed, density):
         return self.cl_avec_portance(ground_speed, density) / self.coef_trainee_2(ground_speed, density)
-
-

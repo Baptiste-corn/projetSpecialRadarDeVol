@@ -1,3 +1,16 @@
+"""
+Contient la classe avion dont chaque objet est créé à partir de la récupération des API de FlightRadar24.
+
+Utilisation (pour créer un objet) :
+
+        flight1 = avion.Avion(modele, numero_vol, altitude, ground_speed, heading, lon, lat)
+
+        Exemple :
+        flight1 = avion.Avion("A380", "D521", 6500, 230, 265, 21.8, 39.2)
+
+Auteurs : Baptiste Corn, Augustin Montredon
+"""
+
 
 class Avion:
     def __init__(self, modele, numero_vol, altitude, ground_speed, heading, lon, lat):
@@ -9,11 +22,6 @@ class Avion:
         self.lon = lon
         self.lat = lat
         self.parametre = None  # On initialise plus tard
-
-        # heading
-        # Consommation
-        # Temps de vol
-        # ...
 
     def get_modele(self):
         return self.modele
@@ -42,6 +50,7 @@ class Avion:
     def set_ground_speed(self, nouvelle_vitesse):
         self.ground_speed = nouvelle_vitesse
 
+    # Retourne les informations souhaitées et principales
     def affichage_vol(self):
         return ('<' + self.modele + '>' + ' - ' + self.numero_vol + ' - ' + 'Altitude : ' + str(self.altitude) + ' - '
                 + 'Vitesse : ' + str(self.ground_speed) + ' - ' + 'Heading : ' + str(self.heading) + '\n')

@@ -26,8 +26,6 @@ def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite,
     axe_temp2 = np.full(100 - index_temp_const, 216.66)
     axe_temp_concatene = np.concatenate((axe_temp1, axe_temp2))"""
 
-
-
     altitude_start = 0
     altitude_end = 15000
     altitude_transition = 11000
@@ -49,10 +47,13 @@ def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite,
     temperature_part2 = np.full(N - index_transition - 1, 216.66)
 
     # Combiner les deux parties
+    # Cet axe s'assure de la validation des états avant modif et après modif
     axe_temp_concatene = np.concatenate((temperature_part1, temperature_part2))
 
+    # Cet axe s'assure de la validation des états avant modif et après modif
     axe_densite = np.linspace(1.225, 0.195, N)
 
+    # Cet axe s'assure de la validation des états avant modif et après modif
     axe_finesse = np.linspace(avion.parametre.finesse(avion.ground_speed, 1.225),avion.parametre.finesse(avion.ground_speed, 0.195) ,N)
 
     plt.figure()
@@ -100,6 +101,7 @@ def courbe_coefs_finesse_pour_vitesse(atmosphere, ex_altitude, ex_vitesse, ex_co
     trainee_apres = avion.parametre.trainee(avion.parametre.vitesse_convertie(avion.ground_speed), atmosphere.density()[0])
     finesse_apres = avion.parametre.finesse(avion.parametre.vitesse_convertie(avion.ground_speed), atmosphere.density()[0])
 
+    # Ces axes s'assurent de la validation des états avant modif et après modif
     axe_altitude = np.linspace(0, 15000, 100)
     axe_vitesse = np.linspace(50, avion.parametre.vitesse_max, 100)
 
