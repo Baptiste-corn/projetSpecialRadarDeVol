@@ -24,7 +24,7 @@ Retourne la portance à partir de la masse de l'avion.
 #### trainee(self)
 Permet de calculer la trainée totale de l'avion en utilisant d'autres paramètres tel que l'allongement, le coefficient de trainée calculées au préalable. 
 
-### finesse(self)
+#### finesse(self)
 Quotient de la portance et de la trainée, représentant l'efficacité de l'aile ou de l'avion. Plus elle est élevée, plus l'avion ira loin en consommant peu de carburant. 
 
 
