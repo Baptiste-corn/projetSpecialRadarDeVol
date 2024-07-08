@@ -3,11 +3,12 @@ Fichier main de test API flightradar24
 Modèles à viser :
 - A320, A380, A330
 - B777, B737, B787, B727, B747
+
+Auteurs : Augustin Montredon, Baptiste Corn
 """
 
 from FlightRadar24 import FlightRadar24API
-import avion
-import atmosphere
+from classes import atmosphere, avion
 import entrees_utilisateur
 from controle_vol import get_dict_parametre
 
@@ -57,16 +58,27 @@ def main():
     print("".join(liste_idd_avion))
 
     # Interactions utilisateur
-    user = int(input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter\n'))
-    while user != 1 or user != 2:
+    user = ""
+    while not user.isnumeric():
+        user = input('Etes-vous un utilisateur ou un admin ? \n1) Utilisateur \n2) Admin \n3) Quitter\n')
+    user = int(user)
+
+    while user != 1 or user != 2 or user != 3:
         if user == 1:
             entrees_utilisateur.guest(liste_objets_avion)
             print(len(liste_objets_avion))
             return 0
         elif user == 2:
             numero_vol_to_modifier = input('Quel vol souhaitez vous modifier ?\n')
-            entrees_utilisateur.tour_de_controle(liste_objets_avion, liste_objets_atmo, numero_vol_to_modifier, liste_idd_avion)
-            return 0
+            num_avions = [avion.numero_vol for avion in liste_objets_avion]
+            while True:
+                if numero_vol_to_modifier in num_avions:
+                    entrees_utilisateur.tour_de_controle(liste_objets_avion, liste_objets_atmo,
+                                                         numero_vol_to_modifier, liste_idd_avion)
+                    return 0
+                else:
+                    numero_vol_to_modifier = input('Ce vol n existe pas, veuillez réessayer. '
+                                                   'Quel vol souhaitez vous modifier ?\n')
         elif user == 3:
             return 0
         else:

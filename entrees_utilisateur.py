@@ -1,21 +1,19 @@
-import gestion_cartopy as gc
-import avion
-import atmosphere
-import gestion_courbes
+from classes import atmosphere, avion
+from affichage import gestion_courbes, gestion_cartopy as gc
 
 
 def guest(avions):
     """
+    Fonction pour afficher une carte des avions.
 
-    :param avions:
-    :return:
+    :param avions: Liste des objets Avion à afficher sur la carte.
+    :return: Aucune valeur de retour spécifiée.
     """
     gc.affichage_carte(avions)
 
 
 def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_vol, liste_idd_avion):
     """
-
     Permet de modifier les paramètres de vol (altitude ou vitesse) d'un avion spécifique.
 
     Cette fonction demande à l'utilisateur quel paramètre (altitude ou vitesse) il souhaite modifier pour un vol
@@ -28,7 +26,12 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
     :param liste_idd_avion: Liste des identifiants des avions pour affichage.
     :return: None
     """
-    choix = int(input('Quel paramètre de vol souhaitez-vous modifier ?  \n1) Altitude \n2) Vitesse ?'))
+    choix = ""
+
+    while not choix.isnumeric():
+        choix = input('Quel paramètre de vol souhaitez-vous modifier ?  \n1) Altitude \n2) Vitesse ?')
+    choix = int(choix)
+
     ex_altitude = 0
     ex_temp = 0
     ex_vitesse = 0
@@ -58,7 +61,10 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
                     ex_trainee = avion_a_modifier.parametre.trainee(ex_vitesse, ex_densite)
                     ex_finesse = avion_a_modifier.parametre.finesse(ex_vitesse, ex_densite)
 
-            nouvelle_altitude = int(input('Quelle est la nouvelle altitude en mètres à atteindre pour ce vol ?'))
+            nouvelle_altitude = ""
+            while not nouvelle_altitude.isnumeric():
+                nouvelle_altitude = input('Quelle est la nouvelle altitude en mètres à atteindre pour ce vol ?')
+            nouvelle_altitude = int(nouvelle_altitude)
             avion_a_modifier.set_altitude(nouvelle_altitude)
             atmo_a_modifier.set_altitude(nouvelle_altitude)
 
@@ -81,7 +87,13 @@ def tour_de_controle(avions: list[avion], atmospheres: list[atmosphere], numero_
                     ex_trainee = avion_a_modifier.parametre.trainee(ex_vitesse, ex_densite)
                     ex_finesse = avion_a_modifier.parametre.finesse(ex_vitesse, ex_densite)
                     break
-            nouvelle_vitesse = int(input('Quelle est la nouvelle vitesse à atteindre pour ce vol ?'))
+            while 1:
+                try:
+                    nouvelle_vitesse = float(input('Quelle est la nouvelle vitesse à atteindre pour ce vol ?'))
+                    break
+                except ValueError:
+                    print('Mauvaise entrée, veuillez réessayer.')
+
             avion_a_modifier.set_ground_speed(nouvelle_vitesse)
 
             gestion_courbes.courbe_coefs_finesse_pour_vitesse(atmo_a_modifier, ex_altitude, ex_vitesse, ex_coef_portance, ex_coef_trainee, ex_trainee, ex_finesse, avion_a_modifier)

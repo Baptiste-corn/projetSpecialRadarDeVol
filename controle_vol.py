@@ -11,7 +11,7 @@ Utilisation (pour créer un objet) :
 Auteur : Baptiste Corn
 """
 
-from parametres import Parametres
+from classes.parametres import Parametres
 
 
 def get_dict_parametre():

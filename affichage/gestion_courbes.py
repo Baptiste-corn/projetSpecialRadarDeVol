@@ -9,6 +9,7 @@ def courbe_atmo_temperature(atmosphere, ex_altitude, ex_temperature, ex_densite,
 
     Cette fonction crée des graphiques montrant les distributions de la température, de la densité et de la finesse
     en fonction de l'altitude pour un avion spécifique avant et après une modification de l'altitude de vol.
+    Les courbes tracées sont basées sur des modèles déjà existants et servent de validation des données transformées.
 
     :param atmosphere: Objet atmosphere contenant les informations atmosphériques.
     :param ex_altitude: Altitude avant modification.
@@ -97,6 +98,7 @@ def courbe_coefs_finesse_pour_vitesse(atmosphere, ex_altitude, ex_vitesse, ex_co
     Cette fonction crée des graphiques montrant les distributions des coefficients de portance, de traînée,
     de la traînée et de la finesse en fonction de la vitesse pour un avion spécifique avant et après une modification
     de la vitesse de vol.
+    Les courbes tracées sont basées sur des modèles déjà existants et servent de validation des données transformées.
 
     :param atmosphere: Objet atmosphere contenant les informations atmosphériques.
     :param ex_altitude: Altitude avant modification.

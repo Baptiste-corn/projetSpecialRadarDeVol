@@ -15,7 +15,7 @@ def affichage_carte(avions):
     :return: None
     """
     # Charger les données de carte
-    shapefile_path = '110m_cultural/ne_110m_admin_0_countries.shp'
+    shapefile_path = '../110m_cultural/ne_110m_admin_0_countries.shp'
 
     world = gpd.read_file(shapefile_path)
 
